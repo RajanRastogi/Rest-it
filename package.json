@@ -1,0 +1,31 @@
+{
+  "name": "Rest-test",
+  "version": "1.0.0",
+  "description": "Testing framework for REST API testing.",
+  "keywords": [
+    "testing",
+    "api",
+    "REST",
+    "node",
+    "cucumber"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Rajan Rastogi",
+    "email": "rajan1311@gmail.com",
+    "url": "https://github.com/RajanRastogi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RajanRastogi/Rest-test"
+  },
+  "dependencies": {
+    "cucumber": "~0.5.2",
+    "lodash": "~3.10.1",
+    "superagent": "~1.2.0",
+    "util": "^0.10.3"
+  },
+  "scripts": {
+    "test": "cucumber.js"
+  }
+}
