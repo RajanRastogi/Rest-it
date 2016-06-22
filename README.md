@@ -14,6 +14,7 @@ The `world.js` file is pretty much a stub and you should use it for your step/te
 You can extract and inject variables into requests and responses. This allows you to chain multiple requests where you can use the response of a request to make another request.
 
 `${variableName}` - extract the value from a response
+
 `$variableName` - apply the value in a request/response
 
 ### Example
