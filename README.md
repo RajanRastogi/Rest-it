@@ -11,7 +11,10 @@ All this project has are basic steps(step definitions) required for any REST api
 
 The `world.js` file is pretty much a stub and you should use it for your step/tear down functions.
 
-You can extract and inject variables into requests and responses. This allows you to chain multiple requests where you can use the response of a request to make another request. 
+You can extract and inject variables into requests and responses. This allows you to chain multiple requests where you can use the response of a request to make another request.
+
+`${variableName}` - extract the value from a response
+`$variableName` - apply the value in a request/response
 
 ### Example
 
@@ -212,3 +215,11 @@ Feature: The OAuth 2.0 Client Credential credentials flow
         }
         """
 ```
+
+### Need Help?
+
+I know the documentation is very limited, mainly due to a complete lack of working examples. I will try adding some meaningful tests that you can run asap. Till then, feel free to open an issue and post your query.
+
+### Contribution
+
+Feel free to make this project your own. There is plenty of scope to optimize the code and many cases that it does not cover. Even the matcher that is used to match responses can be improved. So feel free to contribute.
