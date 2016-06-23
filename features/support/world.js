@@ -101,79 +101,13 @@ Matcher.prototype.getVariables = function(){
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-DataRPM = (function(){
-	var request = require("request-promise");
-	var jwtHelper = require("jsonwebtoken");
-	var _ = require("lodash");
-
-	var DataRPM = function(options){
-		options = options || {};
-		options = _.default(options, {
-			client_id: "",
-			client_secret: "",
-			api_version: "",
-			grant_type: "",
-			token_manager: ""
-		})
-	};
-
-	DataRPM.createJWT = function(options){
-		options = options || {};
-		var required_keys =  ["client_id", "client_secret", "user_id", "scopes"];
-		options = _.pick(options, required_keys);	
-
-		if(_.keys(options).length < 4){
-			throw new Error("Invalid options for creating JWT. The required fields are: "+required_keys.join(" "));
-		}
-
-		var jwt = jwtHelper.sign({
-			userId: options.user_id,
-			scopes: options.scopes
-		}, options.client_secret, { expiresIn: 3600 });
-
-		var token = options.client_id+":"+jwt;
-
-		return token
-	};
-
-	DataRPM.prototype.setClientId = function(){
-
-	};
-
-	DataRPM.prototype.setClientSecret = function(){
-
-	};
-
-	DataRPM.prototype.setVersion = function(){
-
-	};
-
-	DataRPM.prototype.setGrantType = function(){
-
-	};
-
-	DataRPM.prototype.setTokenManager = function(){
-
-	};
-
-	return DataRPM;
-})();
-
-
-function World(cb){
+function World(done){
 	this.req = null;
 	this.util = util;
 	this.userHash = {
 	};
 	this.matcher = new Matcher();
-	this.drpmSdk = DataRPM;
-	this.clients = {
-		"default": {
-			client_id: "1234567",
-			client_secret: "98765432123456789"
-		}
-	}
-	cb();
+	done();
 };
 
 module.exports = function(){
