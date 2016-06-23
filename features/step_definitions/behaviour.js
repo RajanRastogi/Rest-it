@@ -120,26 +120,6 @@ module.exports = function() {
 		});
 	});
 
-	this.When(/^the "([^"]*)" client creates jwt for user "([^"]*)" with scopes$/, function (client_id, user_id, scopes_string, callback) {
-	  client_id = this.matcher.template(client_id);
-	  user_id = this.matcher.template(user_id);
-	  scopes_string = this.matcher.template(scopes_string);
-	  var scopes = JSON.parse(scopes_string);
-	  var clientData = this.clients[client_id];
-	  if(!clientData){
-	  	callback.fail("Invalid client ID");
-	  }
-	  this.userHash[user_id] = this.userHash[user_id] || {};
-	  this.userHash[user_id].jwt = this.drpmSdk.createJWT({
-	  	client_id: clientData.client_id,
-	  	client_secret: clientData.client_secret,
-	  	user_id: user_id,
-	  	scopes: scopes
-	  })
-
-	  callback();
-	});
-
 	this.When(/^the user "([^"]*)" requests "([^"]*)" "([^"]*)" with headers$/, function (user_id, method, url, headers_string, callback) {
 	  	method = method.toLowerCase();
 		if(method === 'delete'){
@@ -147,9 +127,6 @@ module.exports = function() {
 		}
 	    user_id = this.matcher.template(user_id);
 		url = this.matcher.template(url);
-		
-		this.matcher.setVariable("jwtToken", this.userHash[user_id].jwt);
-
 		headers_string = this.matcher.template(headers_string);
 		var header = JSON.parse(headers_string);
   		this.req = request[method](url);
