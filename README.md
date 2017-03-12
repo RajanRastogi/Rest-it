@@ -1,4 +1,4 @@
-# Rest-Test
+# Rest-it
 REST API testing made easy. Uses `Cucumber` for BDD style testing and visionmedia's `Superagent` to make requests.
 With this style, tests should be fairly easy to read and maintain. Once basic setup is done, not much programming required to actually write the tests.
 
