@@ -1,15 +1,14 @@
-# Rest-it
-REST API testing made easy. Uses `Cucumber` for BDD style testing and visionmedia's `Superagent` to make requests.
+# rest-it
+REST API testing made easy. Uses `Cucumber` for BDD styled testing and visionmedia's `Superagent` to make requests.
 With this style, tests should be fairly easy to read and maintain. Once basic setup is done, not much programming required to actually write the tests.
 
-Project is in very early stages. Currently, working on a better matcher.
+Project is in very early stages. Currently, working on a better matcher and working examples.
 
 ### How to use
-If you are used to testing with cucumber, this will nothing new to you. 
 
-All this project has are basic steps(step definitions) required for any REST api such as making requests with various verbs, checking error codes, matching responses, etc. Any custom steps, such as using dummy users can be added easily by adding steps in the step definitions. 
+All this project has are basic steps (i.e step definitions) required for any REST api such as making requests with various verbs, checking error codes, matching responses, etc. Any custom steps, such as using dummy users can be added easily by adding steps in the step definitions. 
 
-The `world.js` file is pretty much a stub and you should use it for your step/tear down functions.
+The `world.js` file is pretty much a stub and you should use it for your setup/teardown functions.
 
 You can extract and inject variables into requests and responses. This allows you to chain multiple requests where you can use the response of a request to make another request.
 
